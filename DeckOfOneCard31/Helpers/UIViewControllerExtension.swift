@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     func presentErrorToUser(localizedError: LocalizedError) {
-        let alertController = UIAlertController(title: "Error", message: "There has been an error", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Error", message: "\(localizedError)", preferredStyle: .actionSheet)
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel)
         alertController.addAction(dismissAction)
         present(alertController, animated: true)

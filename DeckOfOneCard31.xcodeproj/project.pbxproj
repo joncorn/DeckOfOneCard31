@@ -16,6 +16,7 @@
 		6D29938F23D7A66F00473FBE /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29938E23D7A66F00473FBE /* CardController.swift */; };
 		6D29939223D7A6F200473FBE /* CardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29939123D7A6F200473FBE /* CardError.swift */; };
 		6D29939423D7AED900473FBE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29939323D7AED900473FBE /* UIViewControllerExtension.swift */; };
+		6D29939623D7B06900473FBE /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29939523D7B06900473FBE /* CardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		6D29938E23D7A66F00473FBE /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
 		6D29939123D7A6F200473FBE /* CardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardError.swift; sourceTree = "<group>"; };
 		6D29939323D7AED900473FBE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		6D29939523D7B06900473FBE /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		6D29938B23D79F1E00473FBE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D29939523D7B06900473FBE /* CardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D29937523D79EF100473FBE /* AppDelegate.swift in Sources */,
+				6D29939623D7B06900473FBE /* CardViewController.swift in Sources */,
 				6D29938F23D7A66F00473FBE /* CardController.swift in Sources */,
 				6D29939423D7AED900473FBE /* UIViewControllerExtension.swift in Sources */,
 				6D29938D23D7A2AC00473FBE /* Card.swift in Sources */,
@@ -337,7 +341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DeckOfOneCard31/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DeckOfOneCard31/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DeckOfOneCard31/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DeckOfOneCard31/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

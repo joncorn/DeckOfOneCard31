@@ -11,11 +11,16 @@ import UIKit
 class CardController {
     
     // MARK: - String Helpers
-    fileprivate static let baseURL = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=1")
+    fileprivate static let baseURL = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/")
     
     // MARK: - Functions
     static func fetchCard(completion: @escaping (Result<Card, CardError>) -> Void) {
-        guard let finalURL = baseURL else { return completion(.failure(.invalidURL))}
+        
+        guard let baseURL = baseURL else { return completion(.failure(.invalidURL))}
+        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let countItem = URLQueryItem(name: "count", value: "1")
+        components?.queryItems = [countItem]
+        guard let finalURL = components?.url else { return (completion(.failure(.invalidURL)))}
         
         URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if let error = error {
@@ -25,8 +30,9 @@ class CardController {
             guard let data = data else { return completion(.failure(.noData))}
             
             do {
-                let topLevelObject = try JSONDecoder().decode(Card.self, from: data)
-                completion(.success(topLevelObject))
+                let topLevelObject = try JSONDecoder().decode(TopLevelObject.self, from: data)
+                guard let card = topLevelObject.cards.first else { return completion(.failure(.noData))}
+                return completion(.success(card))
             } catch {
                 return completion(.failure(.thrownError(error)))
             }
