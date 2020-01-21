@@ -16,6 +16,4 @@ class Card: Decodable {
     let suit: String
     let value: String
     let image: URL
-    
-    
 }
