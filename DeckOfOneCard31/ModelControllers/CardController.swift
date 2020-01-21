@@ -6,7 +6,7 @@
 //  Copyright © 2020 jdcorn. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CardController {
     
@@ -15,7 +15,7 @@ class CardController {
     
     // MARK: - Functions
     static func fetchCard(completion: @escaping (Result<Card, CardError>) -> Void) {
-        guard let finalURL = baseURL else { return completion(.failure(.invalidURL)) }
+        guard let finalURL = baseURL else { return completion(.failure(.invalidURL))}
         
         URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if let error = error {
@@ -30,6 +30,20 @@ class CardController {
             } catch {
                 return completion(.failure(.thrownError(error)))
             }
+        }.resume()
+    }
+    
+    static func fetchImage(for card: Card, completion: @escaping (Result<UIImage, CardError>) -> Void) {
+        let url = card.image
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            guard let data = data else { return completion(.failure(.noData))}
+            guard let image = UIImage(data: data) else { return completion(.failure(.unableToDecode))}
+            completion(.success(image))
         }.resume()
     }
 }

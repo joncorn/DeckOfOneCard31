@@ -12,4 +12,5 @@ enum CardError: LocalizedError {
     case invalidURL
     case thrownError(Error)
     case noData
+    case unableToDecode
 }
